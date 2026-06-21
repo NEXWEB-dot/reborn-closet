@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Reborn Closet — Secondhand Fashion, Hand-Picked in Karachi</title>
+<title>Reborn Closet — Secondhand Fashion, Hand-Picked in Lahore</title>
 <meta name="description" content="Reborn Closet is a curated thrift storefront. Every piece is sourced, inspected, and sold once — no restocks, ever. Shop denim, outerwear, knitwear, and more.">
 
 <!-- Favicon: simple loop mark, inline SVG data URI -->
@@ -23,25 +23,25 @@
         },
         colors: {
           ink: {
-            DEFAULT: '#0E0E0D',
-            50:  '#FAFAF9',
-            100: '#F1F0EE',
-            150: '#E9E7E3',
-            200: '#E3E1DC',
-            300: '#C7C4BC',
-            400: '#A6A39C',
-            500: '#7A776F',
-            600: '#57544D',
-            900: '#0E0E0D',
+            DEFAULT: '#EDE6D9',
+            50:  '#0F0D0A',
+            100: '#181410',
+            150: '#221C16',
+            200: '#322A21',
+            300: '#4A4035',
+            400: '#6B5F50',
+            500: '#9C8E7B',
+            600: '#C2B6A2',
+            900: '#EDE6D9',
           },
           accent: {
-            DEFAULT: '#1F4D36',
-            soft:    '#E7EFE9',
-            deep:    '#15331F',
+            DEFAULT: '#C8862B',
+            soft:    '#241B0E',
+            deep:    '#A66C1E',
           },
           brick: {
-            DEFAULT: '#AE3326',
-            soft:    '#F7E9E6',
+            DEFAULT: '#C44B30',
+            soft:    '#271510',
           },
         },
         maxWidth: { site: '1320px' },
@@ -62,12 +62,27 @@
       scroll-behavior: auto !important;
     }
   }
-  body { font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif; }
-  ::selection { background: #0E0E0D; color: #fff; }
+  body { font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif; position: relative; }
+
+  /* ---- Grain texture (thrift/lived-in feel) ---- */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.05;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  @media (prefers-reduced-motion: reduce) {
+    body::before { display: none; }
+  }
+  ::selection { background: #EDE6D9; color: #0F0D0A; }
 
   /* ---- Focus ---- */
   :focus-visible {
-    outline: 2px solid #1F4D36;
+    outline: 2px solid #C8862B;
     outline-offset: 2px;
     border-radius: 1px;
   }
@@ -117,10 +132,10 @@
   /* ---- Quantity buttons ---- */
   .qty-btn {
     width: 26px; height: 26px; display: flex; align-items: center; justify-content: center;
-    border: 1px solid #E3E1DC; color: #0E0E0D; font-size: 14px; line-height: 1;
+    border: 1px solid #322A21; color: #EDE6D9; font-size: 14px; line-height: 1;
     transition: background-color .15s ease, border-color .15s ease;
   }
-  .qty-btn:hover { background: #F1F0EE; border-color: #C7C4BC; }
+  .qty-btn:hover { background: #221C16; border-color: #4A4035; }
 
   /* ---- Toast ---- */
   #toast {
@@ -129,21 +144,21 @@
 </style>
 </head>
 
-<body class="bg-white text-ink antialiased">
+<body class="bg-ink-50 text-ink antialiased">
 <a href="#main" class="skip-link">Skip to content</a>
 
 <!-- ============ ANNOUNCEMENT BAR ============ -->
-<div id="announce-bar" class="bg-ink text-white text-[11px] sm:text-xs tracking-[0.12em] uppercase">
+<div id="announce-bar" class="bg-ink-100 text-ink text-[11px] sm:text-xs tracking-[0.12em] uppercase">
   <div class="max-w-site mx-auto px-4 sm:px-6 h-9 flex items-center justify-center gap-3 relative">
-    <p class="text-center">Free drop-off pickup in Karachi &nbsp;·&nbsp; New pieces listed every Friday</p>
-    <button id="announce-close" type="button" aria-label="Dismiss announcement" class="absolute right-2 sm:right-4 w-6 h-6 flex items-center justify-center text-white/70 hover:text-white transition-colors">
+    <p class="text-center">Free drop-off pickup in Lahore &nbsp;·&nbsp; New pieces listed every Friday</p>
+    <button id="announce-close" type="button" aria-label="Dismiss announcement" class="absolute right-2 sm:right-4 w-6 h-6 flex items-center justify-center text-ink-500 hover:text-ink transition-colors">
       <svg viewBox="0 0 24 24" class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 5l14 14M19 5L5 19"/></svg>
     </button>
   </div>
 </div>
 
 <!-- ============ HEADER ============ -->
-<header id="site-header" class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-ink-150 transition-shadow duration-300">
+<header id="site-header" class="sticky top-0 z-40 bg-ink-50/90 backdrop-blur border-b border-ink-150 transition-shadow duration-300">
   <div class="max-w-site mx-auto px-4 sm:px-6">
     <div class="h-[68px] flex items-center justify-between gap-4">
 
@@ -173,7 +188,7 @@
         </button>
         <button id="cart-trigger" type="button" aria-haspopup="dialog" aria-controls="cart-drawer" aria-label="Open bag, 0 items" class="relative w-10 h-10 flex items-center justify-center hover:bg-ink-100 transition-colors">
           <svg viewBox="0 0 24 24" class="w-[19px] h-[19px]" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
-          <span id="cart-count" class="absolute top-1 right-1 min-w-[16px] h-4 px-[3px] rounded-full bg-accent text-white text-[10px] leading-4 text-center hidden">0</span>
+          <span id="cart-count" class="absolute top-1 right-1 min-w-[16px] h-4 px-[3px] rounded-full bg-accent text-ink-50 text-[10px] font-bold leading-4 text-center hidden">0</span>
         </button>
         <button id="menu-trigger" type="button" aria-haspopup="dialog" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu" class="md:hidden w-10 h-10 flex items-center justify-center">
           <span class="block w-[18px]">
@@ -190,24 +205,24 @@
 
 <!-- ============ MOBILE MENU ============ -->
 <div id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu" class="fixed inset-0 z-50 hidden">
-  <div id="mobile-menu-overlay" class="absolute inset-0 bg-ink/90 backdrop-blur-sm opacity-0 transition-opacity duration-300"></div>
+  <div id="mobile-menu-overlay" class="absolute inset-0 bg-ink-50/95 backdrop-blur-sm opacity-0 transition-opacity duration-300"></div>
   <div class="relative h-full flex flex-col px-6 pt-6 pb-10">
     <div class="flex items-center justify-between">
-      <span class="text-white font-semibold tracking-[0.04em]">REBORN CLOSET</span>
-      <button id="mobile-menu-close" type="button" aria-label="Close menu" class="w-10 h-10 -mr-2 flex items-center justify-center text-white">
+      <span class="text-ink font-semibold tracking-[0.04em]">REBORN CLOSET</span>
+      <button id="mobile-menu-close" type="button" aria-label="Close menu" class="w-10 h-10 -mr-2 flex items-center justify-center text-ink">
         <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 5l14 14M19 5L5 19"/></svg>
       </button>
     </div>
     <nav aria-label="Mobile" class="flex-1 flex flex-col justify-center gap-2">
-      <a data-mobile-link href="#shop" class="mobile-link block text-white text-4xl font-light py-3 opacity-0 translate-y-6 transition-all duration-500 ease-out">Shop</a>
-      <a data-mobile-link href="#process" class="mobile-link block text-white text-4xl font-light py-3 opacity-0 translate-y-6 transition-all duration-500 ease-out">Our Process</a>
-      <a data-mobile-link href="#reviews" class="mobile-link block text-white text-4xl font-light py-3 opacity-0 translate-y-6 transition-all duration-500 ease-out">Reviews</a>
-      <a data-mobile-link href="#contact" class="mobile-link block text-white text-4xl font-light py-3 opacity-0 translate-y-6 transition-all duration-500 ease-out">Contact</a>
+      <a data-mobile-link href="#shop" class="mobile-link block text-ink text-4xl font-light py-3 opacity-0 translate-y-6 transition-all duration-500 ease-out">Shop</a>
+      <a data-mobile-link href="#process" class="mobile-link block text-ink text-4xl font-light py-3 opacity-0 translate-y-6 transition-all duration-500 ease-out">Our Process</a>
+      <a data-mobile-link href="#reviews" class="mobile-link block text-ink text-4xl font-light py-3 opacity-0 translate-y-6 transition-all duration-500 ease-out">Reviews</a>
+      <a data-mobile-link href="#contact" class="mobile-link block text-ink text-4xl font-light py-3 opacity-0 translate-y-6 transition-all duration-500 ease-out">Contact</a>
     </nav>
-    <div class="flex items-center gap-4 text-white/60 text-sm">
-      <a href="https://instagram.com" target="_blank" rel="noopener" class="hover:text-white transition-colors">Instagram</a>
+    <div class="flex items-center gap-4 text-ink-500 text-sm">
+      <a href="https://instagram.com" target="_blank" rel="noopener" class="hover:text-ink transition-colors">Instagram</a>
       <span>·</span>
-      <a href="https://wa.me/923001234567" target="_blank" rel="noopener" class="hover:text-white transition-colors">WhatsApp</a>
+      <a href="https://wa.me/923001234567" target="_blank" rel="noopener" class="hover:text-ink transition-colors">WhatsApp</a>
     </div>
   </div>
 </div>
@@ -226,9 +241,9 @@
 
     <div class="relative z-10 w-full max-w-site mx-auto px-4 sm:px-6 pb-14 sm:pb-0 pt-24">
       <div class="max-w-xl">
-        <span class="inline-flex items-center gap-2 text-[11px] tracking-[0.18em] uppercase text-white/90 border border-white/30 rounded-full px-3 py-1.5 mb-6 backdrop-blur-sm">
-          <span class="w-1.5 h-1.5 rounded-full bg-white/90"></span>
-          Thrifted in Karachi
+        <span class="inline-flex items-center gap-2 text-[11px] tracking-[0.18em] uppercase text-ink-50 bg-ink px-3 py-1.5 mb-6 -rotate-1 shadow-md">
+          <span class="w-1.5 h-1.5 rounded-full bg-accent"></span>
+          Thrifted in Lahore
         </span>
         <h1 class="text-white font-light text-5xl sm:text-6xl lg:text-7xl leading-[1.04] tracking-tight">
           Someone's closet.<br>
@@ -238,7 +253,7 @@
           Hand-picked secondhand fashion from across the city. Every piece inspected, tagged, and sold once. No restocks, ever.
         </p>
         <div class="flex flex-wrap items-center gap-3 mt-8">
-          <a href="#shop" class="inline-flex items-center justify-center bg-white text-ink text-sm font-medium rounded-full px-7 py-3.5 hover:bg-ink hover:text-white transition-colors duration-300">
+          <a href="#shop" class="inline-flex items-center justify-center bg-accent text-ink-50 text-sm font-semibold rounded-full px-7 py-3.5 hover:bg-accent-deep transition-colors duration-300">
             Shop New Arrivals
           </a>
           <a href="#process" class="inline-flex items-center justify-center border border-white/50 text-white text-sm font-medium rounded-full px-7 py-3.5 hover:bg-white/10 transition-colors duration-300">
@@ -254,27 +269,27 @@
   </section>
 
   <!-- ============ MARQUEE ============ -->
-  <div class="bg-ink text-white py-3.5 overflow-hidden whitespace-nowrap">
+  <div class="bg-ink-100 text-ink py-3.5 overflow-hidden whitespace-nowrap border-y border-ink-150">
     <div class="marquee-track">
       <span class="flex items-center text-sm tracking-[0.12em] uppercase">
-        <span class="px-6">Secondhand First</span><span class="text-white/30">/</span>
-        <span class="px-6">One Piece, One Buyer</span><span class="text-white/30">/</span>
-        <span class="px-6">Hand-Inspected</span><span class="text-white/30">/</span>
-        <span class="px-6">Thrifted Not Fast Fashion</span><span class="text-white/30">/</span>
-        <span class="px-6">Secondhand First</span><span class="text-white/30">/</span>
-        <span class="px-6">One Piece, One Buyer</span><span class="text-white/30">/</span>
-        <span class="px-6">Hand-Inspected</span><span class="text-white/30">/</span>
-        <span class="px-6">Thrifted Not Fast Fashion</span><span class="text-white/30">/</span>
+        <span class="px-6">Secondhand First</span><span class="text-ink-400">/</span>
+        <span class="px-6">One Piece, One Buyer</span><span class="text-ink-400">/</span>
+        <span class="px-6">Hand-Inspected</span><span class="text-ink-400">/</span>
+        <span class="px-6">Thrifted Not Fast Fashion</span><span class="text-ink-400">/</span>
+        <span class="px-6">Secondhand First</span><span class="text-ink-400">/</span>
+        <span class="px-6">One Piece, One Buyer</span><span class="text-ink-400">/</span>
+        <span class="px-6">Hand-Inspected</span><span class="text-ink-400">/</span>
+        <span class="px-6">Thrifted Not Fast Fashion</span><span class="text-ink-400">/</span>
       </span>
       <span class="flex items-center text-sm tracking-[0.12em] uppercase" aria-hidden="true">
-        <span class="px-6">Secondhand First</span><span class="text-white/30">/</span>
-        <span class="px-6">One Piece, One Buyer</span><span class="text-white/30">/</span>
-        <span class="px-6">Hand-Inspected</span><span class="text-white/30">/</span>
-        <span class="px-6">Thrifted Not Fast Fashion</span><span class="text-white/30">/</span>
-        <span class="px-6">Secondhand First</span><span class="text-white/30">/</span>
-        <span class="px-6">One Piece, One Buyer</span><span class="text-white/30">/</span>
-        <span class="px-6">Hand-Inspected</span><span class="text-white/30">/</span>
-        <span class="px-6">Thrifted Not Fast Fashion</span><span class="text-white/30">/</span>
+        <span class="px-6">Secondhand First</span><span class="text-ink-400">/</span>
+        <span class="px-6">One Piece, One Buyer</span><span class="text-ink-400">/</span>
+        <span class="px-6">Hand-Inspected</span><span class="text-ink-400">/</span>
+        <span class="px-6">Thrifted Not Fast Fashion</span><span class="text-ink-400">/</span>
+        <span class="px-6">Secondhand First</span><span class="text-ink-400">/</span>
+        <span class="px-6">One Piece, One Buyer</span><span class="text-ink-400">/</span>
+        <span class="px-6">Hand-Inspected</span><span class="text-ink-400">/</span>
+        <span class="px-6">Thrifted Not Fast Fashion</span><span class="text-ink-400">/</span>
       </span>
     </div>
   </div>
@@ -293,7 +308,7 @@
         <label for="product-search" class="sr-only">Search products</label>
         <div class="relative">
           <svg viewBox="0 0 24 24" class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-ink-400" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
-          <input id="product-search" type="text" placeholder="Search the rack…" class="w-full border border-ink-200 rounded-full pl-9 pr-4 py-2.5 text-sm bg-ink-50 focus:bg-white focus:border-ink-400 transition-colors placeholder:text-ink-400">
+          <input id="product-search" type="text" placeholder="Search the rack…" class="w-full border border-ink-200 rounded-full pl-9 pr-4 py-2.5 text-sm bg-ink-100 focus:bg-ink-150 focus:border-ink-400 transition-colors placeholder:text-ink-400">
         </div>
       </div>
     </div>
@@ -321,7 +336,7 @@
   </section>
 
   <!-- ============ PROCESS ============ -->
-  <section id="process" class="bg-ink-50 py-16 sm:py-24">
+  <section id="process" class="bg-ink-100 py-16 sm:py-24">
     <div class="max-w-site mx-auto px-4 sm:px-6">
       <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
@@ -393,8 +408,8 @@
           <p class="text-ink-500 text-xs sm:text-sm mt-1">Restocks, ever</p>
         </div>
         <div class="reveal py-9 px-3 text-center">
-          <p class="text-2xl sm:text-3xl font-light">KHI</p>
-          <p class="text-ink-500 text-xs sm:text-sm mt-1">Based in Karachi</p>
+          <p class="text-2xl sm:text-3xl font-light">LHE</p>
+          <p class="text-ink-500 text-xs sm:text-sm mt-1">Based in Lahore</p>
         </div>
       </div>
     </div>
@@ -416,8 +431,8 @@
           <svg viewBox="0 0 20 20" class="w-4 h-4" fill="currentColor"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.2L10 14.9 4.4 18l1.4-6.2L1 7.5l6.4-.6L10 1z"/></svg>
           <svg viewBox="0 0 20 20" class="w-4 h-4" fill="currentColor"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.2L10 14.9 4.4 18l1.4-6.2L1 7.5l6.4-.6L10 1z"/></svg>
         </div>
-        <blockquote class="text-ink-700 leading-relaxed">"I found a denim jacket here I'd been hunting for online for a year — paid a third of the price, and it actually fits."</blockquote>
-        <figcaption class="text-sm text-ink-500 mt-4">— A.K., Karachi</figcaption>
+        <blockquote class="text-ink-600 leading-relaxed">"I found a denim jacket here I'd been hunting for online for a year — paid a third of the price, and it actually fits."</blockquote>
+        <figcaption class="text-sm text-ink-500 mt-4">— A.K., Lahore</figcaption>
       </figure>
 
       <figure class="reveal">
@@ -428,8 +443,8 @@
           <svg viewBox="0 0 20 20" class="w-4 h-4" fill="currentColor"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.2L10 14.9 4.4 18l1.4-6.2L1 7.5l6.4-.6L10 1z"/></svg>
           <svg viewBox="0 0 20 20" class="w-4 h-4" fill="currentColor"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.2L10 14.9 4.4 18l1.4-6.2L1 7.5l6.4-.6L10 1z"/></svg>
         </div>
-        <blockquote class="text-ink-700 leading-relaxed">"The condition tags actually mean something here. What they call 'Good,' I'd honestly call barely worn."</blockquote>
-        <figcaption class="text-sm text-ink-500 mt-4">— S.R., Lahore</figcaption>
+        <blockquote class="text-ink-600 leading-relaxed">"The condition tags actually mean something here. What they call 'Good,' I'd honestly call barely worn."</blockquote>
+        <figcaption class="text-sm text-ink-500 mt-4">— S.R., Gulberg</figcaption>
       </figure>
 
       <figure class="reveal">
@@ -440,8 +455,8 @@
           <svg viewBox="0 0 20 20" class="w-4 h-4" fill="currentColor"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.2L10 14.9 4.4 18l1.4-6.2L1 7.5l6.4-.6L10 1z"/></svg>
           <svg viewBox="0 0 20 20" class="w-4 h-4" fill="currentColor" opacity="0.25"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.2L10 14.9 4.4 18l1.4-6.2L1 7.5l6.4-.6L10 1z"/></svg>
         </div>
-        <blockquote class="text-ink-700 leading-relaxed">"Ordered over WhatsApp, picked it up two hours later. Easiest thrift haul I've ever had, genuinely."</blockquote>
-        <figcaption class="text-sm text-ink-500 mt-4">— M.T., Karachi</figcaption>
+        <blockquote class="text-ink-600 leading-relaxed">"Ordered over WhatsApp, picked it up two hours later. Easiest thrift haul I've ever had, genuinely."</blockquote>
+        <figcaption class="text-sm text-ink-500 mt-4">— M.T., DHA Lahore</figcaption>
       </figure>
     </div>
   </section>
@@ -463,14 +478,14 @@
   </section>
 
   <!-- ============ NEWSLETTER ============ -->
-  <section id="contact" class="bg-ink text-white py-16 sm:py-24">
+  <section id="contact" class="bg-ink-100 text-ink py-16 sm:py-24 border-y border-ink-150">
     <div class="max-w-site mx-auto px-4 sm:px-6">
       <div class="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center">
         <div class="reveal">
-          <span class="text-xs tracking-[0.18em] uppercase text-white/50 font-medium">Stay In The Loop</span>
+          <span class="text-xs tracking-[0.18em] uppercase text-ink-500 font-medium">Stay In The Loop</span>
           <h2 class="text-3xl sm:text-4xl font-light tracking-tight mt-2">Get first dibs on Friday's drop.</h2>
-          <p class="text-white/60 text-sm sm:text-base mt-4 max-w-md leading-relaxed">
-            Every piece is one of one — the good ones go within hours. Join the list and shop before the rest of Karachi does.
+          <p class="text-ink-600 text-sm sm:text-base mt-4 max-w-md leading-relaxed">
+            Every piece is one of one — the good ones go within hours. Join the list and shop before the rest of Lahore does.
           </p>
         </div>
 
@@ -482,14 +497,14 @@
               type="email"
               required
               placeholder="you@email.com"
-              class="flex-1 bg-transparent border border-white/30 focus:border-white rounded-full px-5 py-3.5 text-sm placeholder:text-white/40 transition-colors"
+              class="flex-1 bg-transparent border border-ink-300 focus:border-ink rounded-full px-5 py-3.5 text-sm placeholder:text-ink-400 transition-colors"
             >
-            <button type="submit" class="bg-white text-ink text-sm font-medium rounded-full px-7 py-3.5 hover:bg-accent hover:text-white transition-colors duration-300 whitespace-nowrap">
+            <button type="submit" class="bg-ink text-ink-50 text-sm font-medium rounded-full px-7 py-3.5 hover:bg-accent hover:text-ink-50 transition-colors duration-300 whitespace-nowrap">
               Join the list
             </button>
           </form>
-          <p id="newsletter-error" class="hidden text-brick-soft text-xs mt-3" role="alert">Enter a valid email address to join.</p>
-          <div id="newsletter-success" class="hidden items-center gap-2 mt-1 text-sm text-white/80">
+          <p id="newsletter-error" class="hidden text-brick text-xs mt-3" role="alert">Enter a valid email address to join.</p>
+          <div id="newsletter-success" class="hidden items-center gap-2 mt-1 text-sm text-ink-600">
             <svg viewBox="0 0 24 24" class="w-4 h-4 text-accent" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
             You're on the list — see you Friday.
           </div>
@@ -501,7 +516,7 @@
 </main>
 
 <!-- ============ FOOTER ============ -->
-<footer class="bg-white border-t border-ink-150 pt-14 pb-8">
+<footer class="bg-ink-50 border-t border-ink-150 pt-14 pb-8">
   <div class="max-w-site mx-auto px-4 sm:px-6">
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
 
@@ -549,19 +564,19 @@
 
     <div class="pt-6 border-t border-ink-150 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-ink-400">
       <p>© <span id="year"></span> Reborn Closet. All pieces are pre-loved.</p>
-      <p>Karachi, Pakistan</p>
+      <p>Lahore, Pakistan</p>
     </div>
   </div>
 </footer>
 
 <!-- ============ CART DRAWER ============ -->
-<div id="cart-overlay" class="fixed inset-0 bg-ink/50 backdrop-blur-[2px] z-50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+<div id="cart-overlay" class="fixed inset-0 bg-ink-50/70 backdrop-blur-[2px] z-50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
 <aside
   id="cart-drawer"
   role="dialog"
   aria-modal="true"
   aria-label="Shopping bag"
-  class="fixed top-0 right-0 h-full w-full sm:w-[420px] bg-white z-50 translate-x-full transition-transform duration-400 ease-[cubic-bezier(.22,1,.36,1)] flex flex-col"
+  class="fixed top-0 right-0 h-full w-full sm:w-[420px] bg-ink-50 z-50 translate-x-full transition-transform duration-400 ease-[cubic-bezier(.22,1,.36,1)] flex flex-col"
 >
   <div class="flex items-center justify-between px-5 sm:px-6 h-[68px] border-b border-ink-150 shrink-0">
     <h2 class="font-medium">Your Bag</h2>
@@ -576,7 +591,7 @@
     <svg viewBox="0 0 24 24" class="w-10 h-10 text-ink-300 mb-4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
     <p class="font-medium">Your bag is empty</p>
     <p class="text-ink-500 text-sm mt-1.5 leading-relaxed">Every piece here is one of one. Once it's gone, it's gone for good.</p>
-    <button id="cart-empty-browse" type="button" class="mt-6 text-sm border border-ink rounded-full px-6 py-2.5 hover:bg-ink hover:text-white transition-colors">Browse the Edit</button>
+    <button id="cart-empty-browse" type="button" class="mt-6 text-sm border border-ink rounded-full px-6 py-2.5 hover:bg-ink hover:text-ink-50 transition-colors">Browse the Edit</button>
   </div>
 
   <div id="cart-footer" class="border-t border-ink-150 px-5 sm:px-6 py-5 shrink-0">
@@ -585,7 +600,7 @@
       <span id="cart-subtotal" class="font-medium">Rs 0</span>
     </div>
     <p class="text-ink-400 text-xs mb-4">Shipping and pickup confirmed over WhatsApp.</p>
-    <button id="checkout-whatsapp" type="button" class="w-full flex items-center justify-center gap-2 bg-accent text-white text-sm font-medium rounded-full py-3.5 hover:bg-accent-deep transition-colors duration-300">
+    <button id="checkout-whatsapp" type="button" class="w-full flex items-center justify-center gap-2 bg-accent text-ink-50 text-sm font-semibold rounded-full py-3.5 hover:bg-accent-deep transition-colors duration-300">
       <svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12.3 7.6L3 20l1-5.6A8.5 8.5 0 1 1 21 11.5Z"/></svg>
       Checkout on WhatsApp
     </button>
@@ -594,7 +609,7 @@
 
 <!-- ============ TOAST ============ -->
 <div id="toast" aria-live="polite" class="fixed bottom-5 left-1/2 -translate-x-1/2 sm:left-auto sm:right-6 sm:translate-x-0 z-[60] translate-y-24 opacity-0 pointer-events-none">
-  <div class="bg-ink text-white text-sm rounded-full pl-4 pr-5 py-3 flex items-center gap-2.5 shadow-xl whitespace-nowrap">
+  <div class="bg-ink text-ink-50 text-sm rounded-full pl-4 pr-5 py-3 flex items-center gap-2.5 shadow-xl whitespace-nowrap">
     <svg viewBox="0 0 24 24" class="w-4 h-4 text-accent-soft shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
     <span id="toast-message">Added to your bag</span>
   </div>
@@ -811,13 +826,13 @@
     card.setAttribute('data-id', p.id);
 
     var saleBadge = pct
-      ? '<span class="absolute top-3 right-3 bg-brick text-white text-[10px] font-medium tracking-wide rounded-full px-2.5 py-1">-' + pct + '%</span>'
+      ? '<span class="absolute top-3 right-3 bg-brick text-white text-[10px] font-bold tracking-wide px-2.5 py-1 -rotate-2 shadow-md">-' + pct + '%</span>'
       : '';
 
     card.innerHTML =
       '<div class="relative overflow-hidden bg-ink-100 aspect-[2/3]">' +
         '<img loading="lazy" src="' + p.img + '" alt="' + p.alt + '" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105">' +
-        '<span class="absolute top-3 left-3 bg-white/95 text-ink text-[10px] font-medium tracking-wide rounded-full px-2.5 py-1">1 OF 1</span>' +
+        '<span class="absolute top-3 left-3 bg-ink text-ink-50 text-[10px] font-bold tracking-wide px-2.5 py-1 rotate-1 shadow-md">1 OF 1</span>' +
         saleBadge +
       '</div>' +
       '<div class="pt-3.5">' +
@@ -827,7 +842,7 @@
           '<span class="text-sm font-semibold">' + fmt(p.price) + '</span>' +
           (p.compareAt ? '<span class="text-xs text-ink-400 line-through">' + fmt(p.compareAt) + '</span>' : '') +
         '</div>' +
-        '<button type="button" data-add="' + p.id + '" class="w-full border border-ink text-xs font-medium tracking-wide uppercase py-2.5 hover:bg-ink hover:text-white transition-colors duration-300">Add to Bag</button>' +
+        '<button type="button" data-add="' + p.id + '" class="w-full border border-ink text-xs font-medium tracking-wide uppercase py-2.5 hover:bg-ink hover:text-ink-50 transition-colors duration-300">Add to Bag</button>' +
       '</div>';
 
     return card;
